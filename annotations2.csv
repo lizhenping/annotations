@@ -1,0 +1,43 @@
+db_id,db_name,table_name,table_description,original_column_name,column_description,data_format,value_description,example_data
+0,european_football_2,sqlite_sequence,`sqlite_sequence`表主要用于跟踪具有自动递增主键的表的最大序列值。当数据库中存在一个或多个使用自动递增主键的表时，此表用于维护这些表的序列状态，以确保在插入新行时可以正确地生成唯一的ID。,name,存储具有自动递增主键的表的名称,text,表示数据库中使用自动递增ID的表的名称,'users'
+,,,,seq,记录对应表中自动递增主键的当前最大值,int,表示表中最后一个插入行的自动递增ID值，用于下一次插入时生成新的唯一ID,100
+0,european_football_2,Player,Player表主要用于记录足球运动员的基本信息，包括但不限于球员的唯一标识、姓名、出生日期、身高、体重以及与之相关的API标识，是分析球员表现和统计的基础数据来源。,id,球员的唯一标识符，用于区分不同的球员,int,一个正整数，唯一标识每个球员,10001
+,,,,player_api_id,球员在特定API中的唯一标识,int,一个正整数，用于关联外部API中球员的信息,123456
+,,,,player_name,球员的全名,text,字符串形式的球员名字，可能包含空格和特殊字符如撇号,“Lionel Messi”
+,,,,player_fifa_api_id,球员在FIFA API中的唯一标识,int,一个正整数，用于关联FIFA游戏或相关平台上的球员信息,7891011
+,,,,birthday,球员的出生日期,text,以YYYY-MM-DD格式表示的日期字符串,“1987-06-24”
+,,,,height,球员的身高,int,一个正整数，单位为厘米，表示球员的身高,170
+,,,,weight,球员的体重,int,一个正整数，单位为千克，表示球员的体重,72
+0,european_football_2,League,`League` 表主要用于记录全球各地足球联赛的基本信息，涵盖了联赛的唯一标识、所属国家的标识以及联赛的名称，是管理全球足球联赛数据的核心表。,`id`,联赛的唯一标识符，用于区分不同的足球联赛,int,一个正整数，用以唯一确定一个联赛,1
+,,,,`country_id`,联赛所属国家的唯一标识符，关联到 `Country` 表中的国家信息,int,一个正整数，代表联赛所在国家的唯一标识,101
+,,,,`name`,联赛的名称,text,一个字符串，表示联赛的正式名称,"""Premier League"""
+,,,,`FOREIGN`，此字段名实际应为 `FOREIGN KEY(country_id)`,外键约束，确保 `country_id` 的值在 `Country` 表中存在,text（但实际上是数据库级别的约束而非存储的数据格式）,这个字段本身不存储数据，而是确保数据的一致性和完整性,N/A（由于这是一个约束而不是存储的值）
+0,european_football_2,Country,Country 表主要用于存储世界各国的信息，记录的主要内容涵盖了国家的唯一标识符和国家名称，为其他依赖地理位置或国家信息的数据表提供基础数据支持。,id,国家的唯一标识符，用于区分不同的国家,int,一个正整数，唯一标识一个国家,1
+,,,,name,国家的名称，代表了国家的正式或通用称呼,text,由字母组成的字符串，表示具体的国家名称，如“中国”，“美国”等,“Germany”
+0,european_football_2,Team_Attributes,`Team_Attributes` 表主要用来记录足球队伍在不同战术层面的属性和统计数据，包括球队构建进攻、创造机会以及防守策略的各个方面，这些数据有助于分析球队的比赛风格和战术偏好。,id,唯一标识每支队伍的ID,int,一个唯一的整数用于区分不同的队伍,12345
+,,,,team_fifa_api_id,FIFA API中队伍的ID,int,从FIFA API获取的队伍识别码,67890
+,,,,team_api_id,队伍API的ID,int,队伍在特定API中的唯一标识符,112233
+,,,,date,数据记录日期,text,数据收集或更新的日期，以文本形式表示,"""2023-01-01"""
+,,,,buildUpPlaySpeed,构建攻势的速度,int,表示球队组合攻击的速度指标，数值越高代表速度越快,75
+,,,,buildUpPlaySpeedClass,构建攻势速度等级,text,构建攻势速度的分类描述，如“Slow”，“Normal”，“Fast”等,“Fast”
+,,,,buildUpPlayDribbling,构建攻势中的盘带倾向,int,反映球队在构建攻势时盘带的频率和倾向,60
+,,,,buildUpPlayDribblingClass,构建攻势盘带等级,text,构建攻势中盘带行为的分类描述,“Frequent”
+,,,,buildUpPlayPassing,构建攻势传球能力,int,影响传球距离和支持队友的程度,82
+,,,,buildUpPlayPassingClass,构建攻势传球等级,text,构建攻势传球行为的分类描述,“Accurate”
+,,,,buildUpPlayPositioningClass,构建攻势定位等级,text,球队在前两个三分之二场地上的移动自由度的分类描述,“Flexible”
+,,,,chanceCreationPassing,创造机会传球风险,int,决定传球风险和跑位支持的量级,70
+,,,,chanceCreationPassingClass,创造机会传球等级,text,创造机会时传球决策的分类描述,“Risky”
+,,,,chanceCreationCrossing,创造机会传中倾向,int,球队传中进入禁区的倾向和频率,55
+,,,,chanceCreationCrossingClass,创造机会传中等级,text,创造机会时传中行为的分类描述,“Rare”
+,,,,chanceCreationShooting,创造机会射门倾向,int,球队射门的倾向和频率,80
+,,,,chanceCreationShootingClass,创造机会射门等级,text,创造机会时射门行为的分类描述,“Frequent”
+,,,,chanceCreationPositioningClass,创造机会定位等级,text,球队在最后三分之一场地上的移动自由度的分类描述,“Adventurous”
+,,,,defencePressure,防守压力程度,int,影响球队在球场上开始施压的位置,65
+,,,,defencePressureClass,防守压力等级,text,防守压力策略的分类描述,“High”
+,,,,defenceAggression,防守侵略性,int,影响球队对持球人的抢断方式,78
+,,,,defenceAggressionClass,防守侵略性等级,text,防守侵略性的分类描述,“Intense”
+,,,,defenceTeamWidth,防守宽度,int,影响球队向球侧转移的程度,60
+,,,,defenceTeamWidthClass,防守宽度等级,text,防守宽度策略的分类描述,“Narrow”
+,,,,defenceDefenderLineClass,防守线策略等级,text,影响防守形态和策略的分类描述,“Deep”
+,,,,FOREIGN,外键关联到`team_fifa_api_id`,text,与FIFA API中队伍ID的关联,NULL（此字段实际为外键引用，没有示例数据）
+,,,,FOREIGN,外键关联到`team_api_id`,text,与队伍API ID的关联,NULL（此字段实际为外键引用，没有示例数据）

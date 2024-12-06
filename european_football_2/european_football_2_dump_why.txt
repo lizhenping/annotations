@@ -1,0 +1,66 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "Player_Attributes" (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`player_fifa_api_id`	INTEGER,
+	`player_api_id`	INTEGER,
+	`date`	TEXT,
+	`overall_rating`	INTEGER,
+	`potential`	INTEGER,
+	`preferred_foot`	TEXT,
+	`attacking_work_rate`	TEXT,
+	`defensive_work_rate`	TEXT,
+	`crossing`	INTEGER,
+	`finishing`	INTEGER,
+	`heading_accuracy`	INTEGER,
+	`short_passing`	INTEGER,
+	`volleys`	INTEGER,
+	`dribbling`	INTEGER,
+	`curve`	INTEGER,
+	`free_kick_accuracy`	INTEGER,
+	`long_passing`	INTEGER,
+	`ball_control`	INTEGER,
+	`acceleration`	INTEGER,
+	`sprint_speed`	INTEGER,
+	`agility`	INTEGER,
+	`reactions`	INTEGER,
+	`balance`	INTEGER,
+	`shot_power`	INTEGER,
+	`jumping`	INTEGER,
+	`stamina`	INTEGER,
+	`strength`	INTEGER,
+	`long_shots`	INTEGER,
+	`aggression`	INTEGER,
+	`interceptions`	INTEGER,
+	`positioning`	INTEGER,
+	`vision`	INTEGER,
+	`penalties`	INTEGER,
+	`marking`	INTEGER,
+	`standing_tackle`	INTEGER,
+	`sliding_tackle`	INTEGER,
+	`gk_diving`	INTEGER,
+	`gk_handling`	INTEGER,
+	`gk_kicking`	INTEGER,
+	`gk_positioning`	INTEGER,
+	`gk_reflexes`	INTEGER,
+	FOREIGN KEY(`player_fifa_api_id`) REFERENCES `Player`(`player_fifa_api_id`),
+	FOREIGN KEY(`player_api_id`) REFERENCES `Player`(`player_api_id`)
+);
+INSERT INTO Player_Attributes VALUES(1,218353,505942,'2016-02-18 00:00:00',67,71,'right','medium','medium',49,44,71,61,44,51,45,39,64,49,60,64,59,47,65,55,58,54,76,35,71,70,45,54,48,65,69,69,6,11,10,8,8);
+INSERT INTO Player_Attributes VALUES(2,218353,505942,'2015-11-19 00:00:00',67,71,'right','medium','medium',49,44,71,61,44,51,45,39,64,49,60,64,59,47,65,55,58,54,76,35,71,70,45,54,48,65,69,69,6,11,10,8,8);
+INSERT INTO Player_Attributes VALUES(3,218353,505942,'2015-09-21 00:00:00',62,66,'right','medium','medium',49,44,71,61,44,51,45,39,64,49,60,64,59,47,65,55,58,54,76,35,63,41,45,54,48,65,66,69,6,11,10,8,8);
+INSERT INTO Player_Attributes VALUES(4,218353,505942,'2015-03-20 00:00:00',61,65,'right','medium','medium',48,43,70,60,43,50,44,38,63,48,60,64,59,46,65,54,58,54,76,34,62,40,44,53,47,62,63,66,5,10,9,7,7);
+INSERT INTO Player_Attributes VALUES(5,218353,505942,'2007-02-22 00:00:00',61,65,'right','medium','medium',48,43,70,60,43,50,44,38,63,48,60,64,59,46,65,54,58,54,76,34,62,40,44,53,47,62,63,66,5,10,9,7,7);
+INSERT INTO Player_Attributes VALUES(6,189615,155782,'2016-04-21 00:00:00',74,76,'left','high','medium',80,53,58,71,40,73,70,69,68,71,79,78,78,67,90,71,85,79,56,62,68,67,60,66,59,76,75,78,14,7,9,9,12);
+INSERT INTO Player_Attributes VALUES(7,189615,155782,'2016-04-07 00:00:00',74,76,'left','high','medium',80,53,58,71,32,73,70,69,68,71,79,78,78,67,90,71,85,79,56,60,68,67,60,66,59,76,75,78,14,7,9,9,12);
+INSERT INTO Player_Attributes VALUES(8,189615,155782,'2016-01-07 00:00:00',73,75,'left','high','medium',79,52,57,70,29,71,68,69,68,70,79,78,78,67,90,71,84,79,56,59,67,66,58,65,59,76,75,78,14,7,9,9,12);
+INSERT INTO Player_Attributes VALUES(9,189615,155782,'2015-12-24 00:00:00',73,75,'left','high','medium',79,51,57,70,29,71,68,69,68,70,79,78,78,67,90,71,84,79,56,58,67,66,58,65,59,76,75,78,14,7,9,9,12);
+INSERT INTO Player_Attributes VALUES(10,189615,155782,'2015-12-17 00:00:00',73,75,'left','high','medium',79,51,57,70,29,71,68,69,68,70,79,78,78,67,90,71,84,79,56,58,67,66,58,65,59,76,75,78,14,7,9,9,12);
+INSERT INTO Player_Attributes VALUES(11,189615,155782,'2015-10-16 00:00:00',73,77,'left','high','medium',79,51,57,70,29,71,68,69,68,70,79,78,78,67,90,71,84,79,56,58,67,66,58,65,59,76,75,78,14,7,9,9,12);
+INSERT INTO Player_Attributes VALUES(12,189615,155782,'2015-09-25 00:00:00',74,78,'left','high','medium',79,51,57,70,29,71,68,69,68,70,80,78,78,67,90,71,84,79,56,58,67,66,58,65,59,76,75,78,14,7,9,9,12);
+INSERT INTO Player_Attributes VALUES(13,189615,155782,'2015-09-21 00:00:00',73,77,'left','medium','medium',79,51,57,70,29,67,68,69,68,68,79,78,78,67,90,71,84,79,56,58,67,66,58,65,59,76,75,78,14,7,9,9,12);
+INSERT INTO Player_Attributes VALUES(14,189615,155782,'2015-01-09 00:00:00',71,75,'left','medium','medium',78,50,56,69,28,66,67,68,67,67,79,82,79,71,90,70,84,79,50,56,66,65,57,64,58,73,72,72,13,6,8,8,11);
+INSERT INTO Player_Attributes VALUES(15,189615,155782,'2014-12-05 00:00:00',71,77,'left','medium','medium',78,50,56,69,28,66,67,68,67,67,79,82,79,71,90,70,84,79,50,56,66,65,57,64,58,73,72,72,13,6,8,8,11);
+INSERT INTO Player_Attributes VALUES(16,189615,155782,'2014-11-07 00:00:00',71,77,'left','medium','medium',78,50,56,69,28,66,67,68,67,67,79,82,79,71,90,70,84,79,50,56,66,65,57,64,58,73,72,72,13,6,8,8,11);
+INSERT INTO Player_Attributes VALUES(17,189615,155782,'2014-09-18 00:00:00',70,77,'left','medium','medium',77,50,51,67,28,66,67,68,67,66,79,82,79,69,90,70,84,79,50,56,66,62,57,64,58,73,72,72,13,6,8,8,11);
+INSERT INTO Player_Attributes VALUES(18,189615,155782,'2014-05-02 00:00:00',70,79,'left','medium','medium',77,50,51,67,28,66,67,68,67,66,84,82,81,69,90,70,84,80,50,56,66,62,57,64,58,73,72,72,13,6,8,8,11);
